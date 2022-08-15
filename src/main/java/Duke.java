@@ -1,6 +1,25 @@
 import java.util.Scanner;
 
 public class Duke {
+    private static String[] lst = new String[100];
+    private static int currEmpty = 0;
+
+    private static void add(String str) {
+        if (currEmpty == 100) {
+            System.out.println("List is Already Full, Cannot add anymore item");
+            return;
+        }
+        lst[currEmpty] = str;
+        System.out.println("added: " + str);
+        currEmpty++;
+    }
+
+    private static void read() {
+        for (int i = 0; i < currEmpty; i++) {
+            System.out.println(i + 1 + ". " + lst[i]);
+        }
+    }
+
     public static void main(String[] args) {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -17,12 +36,15 @@ public class Duke {
 
         while (true) {
             input = myScanner.nextLine();
-            if (input.equals("bye")) {
+            if (input.equals("list")) {
+                read();
+            } else if (input.equals("bye")) {
                 System.out.println("See you later :)");
                 System.exit(0);
+            } else {
+                add(input);
             }
-            System.out.println(input);
         }
-
     }
+
 }
