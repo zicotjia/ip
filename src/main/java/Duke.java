@@ -2,43 +2,16 @@ import java.util.Scanner;
 
 public class Duke {
 
-    public class Task {
-        private String description;
-        private boolean done;
-
-        public Task(String description) {
-            this.description = description;
-            this.done = false;
-        }
-
-        private void setDone() {
-            if (this.done) {
-                System.out.println("Task is already done");
-                return;
-            }
-            System.out.println("Task is marked as Done");
-            this.done = true;
-        }
-
-        private void setNotDone() {
-            if (!this.done) {
-                System.out.println("Task is still undone");
-                return;
-            }
-            System.out.println("Task is marked as undone");
-            this.done = false;
-        }
-    }
     private static Task[] lst = new Task[100];
     private static int currEmpty = 0;
 
-    private void add(String str) {
+    private void add(Task task) {
         if (currEmpty == 100) {
             System.out.println("List is Already Full, Cannot add anymore item");
             return;
         }
-        lst[currEmpty] = new Task(str);
-        System.out.println("added: " + str);
+        lst[currEmpty] = task;
+        System.out.println("added: " + task.toString());
         currEmpty++;
     }
 
@@ -51,12 +24,7 @@ public class Duke {
         System.out.println("Here are the tasks in your list");
         for (int i = 0; i < currEmpty; i++) {
             Task curr = lst[i];
-            if (curr.done) {
-                System.out.println(i + 1 + ".[X] " + lst[i].description);
-            } else {
-                System.out.println(i + 1 + ".[ ] " + lst[i].description);
-            }
-
+            System.out.println(i + 1 + "." + curr.toString());
         }
     }
 
@@ -95,32 +63,84 @@ public class Duke {
         while (true) {
             System.out.println("What do you want me to do?");
             String input = myScanner.nextLine();
-            if (input.equals("list")) {
-                duke.read();
-            } else if (input.equals("bye")) {
-                System.out.println("See you later :)");
-                System.exit(0);
-            } else if (input.equals("mark")) {
-                System.out.print("Select task index to mark as done:");
-                int index = myScanner.nextInt();
-                myScanner.nextLine();
-                if (index < 0) {
-                    System.out.println("index cannot be negative");
-                } else {
-                    duke.mark(index - 1);
-                }
-            } else if (input.equals("unmark")) {
-                System.out.print("Select task index to mark as not done:");
-                int index = myScanner.nextInt();
-                myScanner.nextLine();
-                if (index < 0) {
-                    System.out.println("index cannot be negative");
-                } else {
-                    duke.unMark(index - 1);
-                }
-            } else if (!input.equals("")) {
-                duke.add(input);
+
+            switch (input) {
+                case "list":
+                    duke.read();
+                    break;
+                case "mark":
+                    System.out.print("Select task index to mark as done:");
+                    int index = myScanner.nextInt();
+                    myScanner.nextLine();
+                    if (index < 0) {
+                        System.out.println("index cannot be negative");
+                    } else {
+                        duke.mark(index - 1);
+                    }
+                    break;
+                case "unmark":
+                    System.out.print("Select task index to mark as not done:");
+                    int index2 = myScanner.nextInt();
+                    myScanner.nextLine();
+                    if (index2 < 0) {
+                        System.out.println("index cannot be negative");
+                    } else {
+                        duke.unMark(index2 - 1);
+                    }
+                    break;
+                case "deadline":
+                    System.out.print("What Deadline item do you want to add: ");
+                    String newDesc = myScanner.nextLine();
+                    System.out.print("When is the Deadline itself: ");
+                    String by = myScanner.nextLine();
+                    Deadline newDeadLine = new Deadline(newDesc, by);
+                    duke.add(newDeadLine);
+                    break;
+                case "todo":
+                    System.out.print("What ToDo item do you want to add: ");
+                    String newDesc2 = myScanner.nextLine();
+                    ToDo newToDo = new ToDo(newDesc2);
+                    duke.add(newToDo);
+                    break;
+                case "event":
+                    System.out.print("What Event item do you want to add: ");
+                    String newDesc3 = myScanner.nextLine();
+                    System.out.print("What is the duration: ");
+                    String at = myScanner.nextLine();
+                    Event newEvent = new Event(newDesc3, at);
+                    duke.add(newEvent);
+                    break;
+                case "bye":
+                    System.out.println("See you later :)");
+                    System.exit(0);
+                    break;
             }
+//            if (input.equals("list")) {
+//                duke.read();
+//            } else if (input.equals("bye")) {
+//                System.out.println("See you later :)");
+//                System.exit(0);
+//            } else if (input.equals("mark")) {
+//                System.out.print("Select task index to mark as done:");
+//                int index = myScanner.nextInt();
+//                myScanner.nextLine();
+//                if (index < 0) {
+//                    System.out.println("index cannot be negative");
+//                } else {
+//                    duke.mark(index - 1);
+//                }
+//            } else if (input.equals("unmark")) {
+//                System.out.print("Select task index to mark as not done:");
+//                int index = myScanner.nextInt();
+//                myScanner.nextLine();
+//                if (index < 0) {
+//                    System.out.println("index cannot be negative");
+//                } else {
+//                    duke.unMark(index - 1);
+//                }
+//            } else if (!input.equals("")) {
+//                duke.add(input);
+//            }
         }
 
 
