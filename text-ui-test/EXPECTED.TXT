@@ -1,7 +1,50 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
-
+Hello! i am Duke
+What do you want me to do?
+------------------------------------
+You have no task
+------------------------------------
+What do you want me to do?
+------------------------------------
+Select task index to mark as done: ------------------------------------
+There is no task with that index
+------------------------------------
+What do you want me to do?
+------------------------------------
+Select task index to mark as not done: ------------------------------------
+There is no task with that index
+------------------------------------
+What do you want me to do?
+------------------------------------
+Select task index to mark as done: ------------------------------------
+index cannot be negative
+------------------------------------
+What do you want me to do?
+------------------------------------
+Select task index to mark as not done: ------------------------------------
+index cannot be negative
+------------------------------------
+What do you want me to do?
+------------------------------------
+What ToDo item do you want to add: ------------------------------------
+added: [T][ ] Hello World
+------------------------------------
+What do you want me to do?
+------------------------------------
+What Deadline item do you want to add: When is the Deadline itself: ------------------------------------
+added: [D][ ] Go to Library (by: August 2)
+------------------------------------
+What do you want me to do?
+------------------------------------
+What Event item do you want to add: What is the duration: ------------------------------------
+added: [E][ ] Career Fair (at: August 20 12PM - 5PM)
+------------------------------------
+What do you want me to do?
+------------------------------------
+Here are the tasks in your list:
+1.[T][ ] Hello World
+2.[D][ ] Go to Library (by: August 2)
+3.[E][ ] Career Fair (at: August 20 12PM - 5PM)
+------------------------------------
+What do you want me to do?
+------------------------------------
+See you later :)

@@ -12,8 +12,8 @@ public class Task {
             System.out.println("Task is already done");
             return;
         }
-        System.out.println("Task is marked as Done");
         this.done = true;
+        System.out.println("Task is marked as Done \n" + this.toString());
     }
 
     public void setNotDone() {
@@ -21,8 +21,8 @@ public class Task {
             System.out.println("Task is still undone");
             return;
         }
-        System.out.println("Task is marked as undone");
         this.done = false;
+        System.out.println("Task is marked as undone \n" + this.toString());
     }
 
     @Override
