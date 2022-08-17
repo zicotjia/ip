@@ -1,49 +1,57 @@
 Hello! i am Duke
+------------------------------------
+What do you want me to do?
+Too many Arguments
+------------------------------------
 What do you want me to do?
 ------------------------------------
 You have no task
 ------------------------------------
 What do you want me to do?
-------------------------------------
-Select task index to mark as done: ------------------------------------
-There is no task with that index
+Unknown Command
 ------------------------------------
 What do you want me to do?
 ------------------------------------
-Select task index to mark as not done: ------------------------------------
-There is no task with that index
+added: [D][ ]  Math Homework  (by: 24 Aug)
 ------------------------------------
 What do you want me to do?
 ------------------------------------
-Select task index to mark as done: ------------------------------------
-index cannot be negative
+added: [T][ ]  Laundry and Cleaning
 ------------------------------------
 What do you want me to do?
 ------------------------------------
-Select task index to mark as not done: ------------------------------------
-index cannot be negative
+added: [E][ ]  Career Fair  (at: 30 aug 12PM - 5PM)
 ------------------------------------
 What do you want me to do?
-------------------------------------
-What ToDo item do you want to add: ------------------------------------
-added: [T][ ] Hello World
-------------------------------------
-What do you want me to do?
-------------------------------------
-What Deadline item do you want to add: When is the Deadline itself: ------------------------------------
-added: [D][ ] Go to Library (by: August 2)
-------------------------------------
-What do you want me to do?
-------------------------------------
-What Event item do you want to add: What is the duration: ------------------------------------
-added: [E][ ] Career Fair (at: August 20 12PM - 5PM)
+Invalid Commands
 ------------------------------------
 What do you want me to do?
 ------------------------------------
 Here are the tasks in your list:
-1.[T][ ] Hello World
-2.[D][ ] Go to Library (by: August 2)
-3.[E][ ] Career Fair (at: August 20 12PM - 5PM)
+1.[D][ ]  Math Homework  (by: 24 Aug)
+2.[T][ ]  Laundry and Cleaning
+3.[E][ ]  Career Fair  (at: 30 aug 12PM - 5PM)
+------------------------------------
+What do you want me to do?
+------------------------------------
+Task is marked as Done 
+[D][X]  Math Homework  (by: 24 Aug)
+------------------------------------
+What do you want me to do?
+------------------------------------
+Task is still undone
+------------------------------------
+What do you want me to do?
+------------------------------------
+Task is marked as undone 
+[D][ ]  Math Homework  (by: 24 Aug)
+------------------------------------
+What do you want me to do?
+------------------------------------
+Here are the tasks in your list:
+1.[D][ ]  Math Homework  (by: 24 Aug)
+2.[T][ ]  Laundry and Cleaning
+3.[E][ ]  Career Fair  (at: 30 aug 12PM - 5PM)
 ------------------------------------
 What do you want me to do?
 ------------------------------------
