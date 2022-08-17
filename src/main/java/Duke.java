@@ -47,15 +47,7 @@ public class Duke {
         lst[index].setNotDone();
     }
 
-
-
     public static void main(String[] args) {
-//        String logo = " ____        _        \n"
-//                + "|  _ \\ _   _| | _____ \n"
-//                + "| | | | | | | |/ / _ \\\n"
-//                + "| |_| | |_| |   <  __/\n"
-//                + "|____/ \\__,_|_|\\_\\___|\n";
-//        System.out.println("Hello from\n" + logo);
 
         Duke duke = new Duke();
 
@@ -64,78 +56,95 @@ public class Duke {
 
 
         while (true) {
+            System.out.println(SEPARATOR);
             System.out.println("What do you want me to do?");
-            String input = myScanner.nextLine();
+            String command = myScanner.next();
+//            String input = myScanner.nextLine();
+//            if (input == "") {
+//                System.out.println("Empty Input");
+//            }
+//            String[] commandAndDescription = input.split(" ", 2);
+//            String command = commandAndDescription[0];
+//            String description = "";
+//            if (commandAndDescription.length > 1 && commandAndDescription[1].trim() != "") {
+//                description = commandAndDescription[1];
+//            }
 
-            switch (input) {
+            switch (command) {
                 case "list":
                     System.out.println(SEPARATOR);
                     duke.read();
-                    System.out.println(SEPARATOR);
                     break;
                 case "mark":
-                    System.out.println(SEPARATOR);
-                    System.out.print("Select task index to mark as done: ");
                     int index = myScanner.nextInt();
-                    myScanner.nextLine();
-                    System.out.println(SEPARATOR);
-                    if (index < 0) {
-                        System.out.println("index cannot be negative");
-                    } else {
 
+                    if (!myScanner.nextLine().isBlank()) {
+                        System.out.println("Too many Arguments");
+                        break;
+                    }
+
+                    System.out.println(SEPARATOR);
+                    if (index <= 0) {
+                        System.out.println("index cannot be zero or negative");
+                        break;
+                    } else {
                         duke.mark(index - 1);
                     }
-                    System.out.println(SEPARATOR);
                     break;
                 case "unmark":
-                    System.out.println(SEPARATOR);
-                    System.out.print("Select task index to mark as not done: ");
-                    int index2 = myScanner.nextInt();
-                    myScanner.nextLine();
-                    System.out.println(SEPARATOR);
-                    if (index2 < 0) {
-                        System.out.println("index cannot be negative");
-                    } else {
-                        duke.unMark(index2 - 1);
+                    int index1 = myScanner.nextInt();
+                    if (!myScanner.nextLine().isBlank()) {
+                        System.out.println("Too many Arguments");
+                        break;
                     }
+
                     System.out.println(SEPARATOR);
+                    if (index1 < 0) {
+                        System.out.println("index cannot be negative");
+                        break;
+                    } else {
+                        duke.unMark(index1 - 1);
+                    }
                     break;
                 case "deadline":
+                    String unParsed = myScanner.nextLine();
+                    String[] descriptionAndBy =  unParsed.split("/by", 2);
+                    if (descriptionAndBy.length != 2) {
+                        System.out.println("Invalid Commands");
+                        break;
+                    }
                     System.out.println(SEPARATOR);
-                    System.out.print("What Deadline item do you want to add: ");
-                    String newDesc = myScanner.nextLine();
-                    System.out.print("When is the Deadline itself: ");
-                    String by = myScanner.nextLine();
-                    Deadline newDeadLine = new Deadline(newDesc, by);
-                    System.out.println(SEPARATOR);
+                    Deadline newDeadLine = new Deadline(descriptionAndBy[0], descriptionAndBy[1]);
                     duke.add(newDeadLine);
-                    System.out.println(SEPARATOR);
                     break;
                 case "todo":
+                    String description = myScanner.nextLine();
+                    if (description.isBlank()) {
+                        System.out.println("Empty Arguments");
+                    }
                     System.out.println(SEPARATOR);
-                    System.out.print("What ToDo item do you want to add: ");
-                    String newDesc2 = myScanner.nextLine();
-                    ToDo newToDo = new ToDo(newDesc2);
-                    System.out.println(SEPARATOR);
+                    ToDo newToDo = new ToDo(description);
                     duke.add(newToDo);
-                    System.out.println(SEPARATOR);
                     break;
                 case "event":
+                    String unParsed1 = myScanner.nextLine();
+                    String[] descriptionAndBy1 =  unParsed1.split("/T", 2);
+                    if (descriptionAndBy1.length != 2) {
+                        System.out.println("Invalid Commands");
+                        break;
+                    }
                     System.out.println(SEPARATOR);
-                    System.out.print("What Event item do you want to add: ");
-                    String newDesc3 = myScanner.nextLine();
-                    System.out.print("What is the duration: ");
-                    String at = myScanner.nextLine();
-                    Event newEvent = new Event(newDesc3, at);
-                    System.out.println(SEPARATOR);
-                    duke.add(newEvent);
-                    System.out.println(SEPARATOR);
+                    Event newDeadLine1 = new Event(descriptionAndBy1[0], descriptionAndBy1[1]);
+                    duke.add(newDeadLine1);
                     break;
                 case "bye":
                     System.out.println(SEPARATOR);
                     System.out.println("See you later :)");
                     System.exit(0);
                     break;
+                default:
+                    System.out.println("Unknown Command");
+                    myScanner.nextLine();
             }
         }
 
